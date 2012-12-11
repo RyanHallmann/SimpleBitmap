@@ -1,8 +1,10 @@
 <resources>
 
-    <string name="app_name">PaintDemo</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">SimpleBitmap</string>
+    <string name="hello_world">
+        
+    </string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">PaintDemo</string>
+    <string name="title_activity_main">SimpleBitmap</string>
 
 </resources>
