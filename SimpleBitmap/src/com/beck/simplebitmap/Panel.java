@@ -92,7 +92,14 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 		   
 		   int positionx = ((x/2) - bm.getWidth()/2);
 	       int positiony = ((y/2) - bm.getHeight()/2);
-	       
+	      
+	       //WE UNCOMMENT THIS BLOCK IN LESSON 3
+	       /*
+	       float speedx= (float) Math.sin(rotation*(Math.PI/180)) * speed;
+           float speedy = (float) Math.cos(rotation*(Math.PI/180)) * speed;
+                   positionx -= speedx;
+                   positiony += speedy;
+	       */
 	       m.postTranslate(positionx, positiony);
 
 	        // This method sets the value of of our **global** variable (position) to the **local** variable (m)
