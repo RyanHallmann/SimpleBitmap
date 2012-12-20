@@ -15,6 +15,7 @@ import android.view.SurfaceView;
 public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	//GLOBAL VARIABLES
 	private CanvasThread canvasthread;
+	
     //Variable used to hold our bitmap
 	Bitmap bm;
     //Variable used to hold the current rotation value of the bitmap
@@ -48,7 +49,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	 public Panel(Context context) {
 		   super(context);
 		    getHolder().addCallback(this);
-		    canvasthread = new CanvasThread(getHolder(), this);
+		  
 		    setFocusable(true);
 
 	    }
@@ -60,9 +61,10 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	   // is. The center on a phone will be different than the center point on a
 	   // tablet.
 		
+	
 		x = canvas.getWidth();
         y = canvas.getHeight();			   
-	   
+		
         update();	
         canvas.drawColor(Color.BLACK);
 		
@@ -112,23 +114,30 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 
 
 
-	public void surfaceChanged(SurfaceHolder holder, int format, int width,
+
+	 
+	 public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 	
 	public void surfaceCreated(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
-	    canvasthread.setRunning(true);
-	    canvasthread.start();
-
+		  canvasthread = new CanvasThread(getHolder(), this);
+		canvasthread.setRunning(true);
+	       
+	    	canvasthread.start();
+	    	
+	    	
 		
 	}
 
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
-		boolean retry = true;
+		
+	boolean retry = true;
 		canvasthread.setRunning(false);
 		while (retry) {
 			try {
@@ -137,10 +146,15 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 			} catch (InterruptedException e) {
 				// we will try it again and again...
 			}
+			
 		}
 
 	 
-	 
+
+
+
+
+
 	 
 	
 	}
